@@ -4,7 +4,7 @@ button {
     border-radius: 4px;
     cursor: pointer;
     border: none;
-    margin: 5px;
+    margin: 5px 0;
 }
 
 .main {
@@ -30,9 +30,26 @@ button {
     background-color: $white;
     border: solid 1px $purple;
     color: $purple;
+
+    &:hover {
+        color: lighten($purple, 10%);
+        border: solid 1px lighten($purple, 10%);
+    }
+
+    &:active {
+        color: darken($purple, 10%);
+        border: solid 1px darken($purple, 10%);
+    }
+
+    &:disabled {
+        color: $disabled;
+        border: solid 1px $disabled;
+        cursor: not-allowed;
+    }
 }
 
 .large {
+    width: 100%;
     padding: 12px 32px;
     font-size: 18px;
 }

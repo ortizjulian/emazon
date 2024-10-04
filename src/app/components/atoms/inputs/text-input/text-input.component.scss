@@ -1,0 +1,17 @@
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+input {
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 4px;
+}

@@ -1,0 +1,12 @@
+<div>
+    <h2>Crear Categoría</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <text-input label="Nombre" formControlName="name" [errorMessage]="getNameErrorMessage()">
+        </text-input>
+
+        <text-input label="Descripción" formControlName="description" [errorMessage]="getDescriptionErrorMessage()">
+        </text-input>
+
+        <primary-button size="large" type="main" [disabled]="categoryForm.invalid">Crear</primary-button>
+    </form>
+</div>
