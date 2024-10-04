@@ -4,7 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { PageComponent } from './components/page/page.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-
+import { MoleculesModule } from '../components/molecules/molecules.module';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -13,7 +13,8 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MoleculesModule
   ],
   exports: [
     HeaderComponent,
