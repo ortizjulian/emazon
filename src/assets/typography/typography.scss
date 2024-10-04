@@ -1,0 +1,111 @@
+@import 'breakpoints.scss';
+
+.body-L {
+    font-size: 22px;
+    line-height: 144%;
+    font-weight: 400;
+}
+
+.body-M {
+    font-size: 18px;
+    line-height: 132%;
+    font-weight: 300;
+}
+
+.body-M-Regular {
+    font-size: 18px;
+    line-height: 132%;
+    font-weight: 400;
+}
+
+.body-S {
+    font-size: 16px;
+    line-height: 148%;
+    font-weight: 300;
+}
+
+.body-S-Regular {
+    font-size: 16px;
+    line-height: 148%;
+    font-weight: 400;
+}
+
+.body-XS {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+}
+
+
+h1 {
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 128%;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 124%;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 132%;
+}
+
+
+@media (max-width:#{map-get($grid-breakpoints, tablet)}) {
+    h1 {
+        font-size: 32px;
+        line-height: 124%;
+    }
+
+    h2 {
+        font-size: 24px;
+        line-height: 128%;
+    }
+
+    h3 {
+        font-size: 22px;
+        line-height: 124%;
+    }
+
+    h4 {
+        font-size: 18px;
+        line-height: 132%;
+    }
+}
+
+@media (max-width:#{map-get($grid-breakpoints, mobile)}) {
+    h1 {
+        font-size: 29px;
+        line-height: 124%;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-size: 22px;
+        line-height: 128%;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 19px;
+        line-height: 128%;
+        font-weight: 700;
+    }
+
+    h4 {
+        font-size: 16px;
+        line-height: 128%;
+        font-weight: 700;
+    }
+}

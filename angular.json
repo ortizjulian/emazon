@@ -30,6 +30,13 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/colors",
+                "src/assets/breakpoints",
+                "src/assets/typography"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -103,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "6785a2b4-05fe-4c13-8377-fcd117088d37"
   }
 }
