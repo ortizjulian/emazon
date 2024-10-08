@@ -1,0 +1,12 @@
+export const NAME = 'Nombre';
+export const DESCRIPTION = 'Descripción';
+export const CREATE_CATEGORY = 'Crear categoría';
+export const CREATE = 'Crear';
+export const NAME_CONTROL = 'name';
+export const DESCRIPTION_CONTROL = 'description';
+export const CATEGORY_CREATED_SUCCESSFULLY = 'Categoría creada exitosamente';
+export const CATEGORY_CREATE_ERROR = 'Error al crear la categoría';
+export const NAME_REQUIRED_ERROR = 'El nombre es obligatorio.';
+export const NAME_MAXLENGTH_ERROR = 'La descripción no puede exceder los 50 caracteres.';
+export const DESCRIPTION_REQUIRED_ERROR = 'La descripción es obligatoria.';
+export const DESCRIPTION_MAXLENGTH_ERROR = 'La descripción no puede exceder los 120 caracteres.';

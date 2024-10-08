@@ -1,10 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-export const TOAST_STATE = {
-  success: 'success',
-  error: 'error'
-};
+import { TOAST_STATE } from 'src/app/shared/utils/constants/services-constants';
 
 @Injectable({
   providedIn: 'root'

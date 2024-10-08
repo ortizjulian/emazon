@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
+import { STOCK_CREATE_CATEGORY } from 'src/app/shared/utils/constants/services-constants';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +15,7 @@ export class CategoryService {
   }
 
   createCategory(categoryData: Category): Observable<any> {
-    return this.http.post(this.url + "/category", categoryData);
+    return this.http.post(this.url + STOCK_CREATE_CATEGORY, categoryData);
   }
 
 }

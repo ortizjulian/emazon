@@ -1,12 +1,16 @@
 <div>
-    <h2>Crear Categoría</h2>
+    <h2>{{createCategory}}</h2>
     <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-        <text-input label="Nombre" formControlName="name" [errorMessage]="getNameErrorMessage()">
+        <text-input [label]="nameLabel" [formControlName]="name_control" [errorMessage]="getNameErrorMessage()">
         </text-input>
 
-        <text-input label="Descripción" formControlName="description" [errorMessage]="getDescriptionErrorMessage()">
+        <text-input [label]="descriptionLabel" [formControlName]="description_control"
+            [errorMessage]="getDescriptionErrorMessage()">
         </text-input>
 
-        <primary-button size="large" type="main" [disabled]="categoryForm.invalid">Crear</primary-button>
+        <primary-button [size]="ButtonSizes.LARGE" [type]="ButtonTypes.MAIN" [disabled]="categoryForm.invalid">
+            {{ createButtonText }}
+        </primary-button>
+
     </form>
 </div>

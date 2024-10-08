@@ -1,6 +1,8 @@
 
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { LABEL_TEXT, PLACEHOLDER_TEXT } from 'src/app/shared/utils/constants/atoms-constants';
+import { InputSizes } from 'src/app/shared/utils/enums/atoms-enums';
 
 @Component({
   selector: 'text-input',
@@ -15,10 +17,11 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class TextInputComponent implements ControlValueAccessor {
-  @Input() size: 'normal' | 'small' = 'normal';
-  @Input() label: string = 'Ingresa tu texto:';
+  @Input() size: InputSizes = InputSizes.NORMAL;
+  @Input() label: string = LABEL_TEXT;
   @Input() errorMessage: string = '';
 
+  placeholderText = PLACEHOLDER_TEXT;
   onChange: any = () => { }
   onTouch: any = () => { }
   registerOnChange(fn: any): void {

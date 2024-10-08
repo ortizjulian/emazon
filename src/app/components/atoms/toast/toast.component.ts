@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations'
 import { ToastService } from 'src/app/core/services/toast.service';
+import { ICONS } from 'src/app/shared/utils/enums/icons-enums';
+
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
@@ -20,7 +22,7 @@ export class ToastComponent implements OnInit {
 
   toastMessage: string = "";
   showsToast: boolean = false;
-
+  icons = ICONS;
   constructor(public toast: ToastService) { }
 
   ngOnInit(): void { }

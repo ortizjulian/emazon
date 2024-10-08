@@ -3,10 +3,10 @@
 
     <div class="icon center">
         <span *ngIf="(toast.toastState$ | async) === 'error'" class="material-symbols-outlined">
-            cancel
+            {{ icons.CANCEL }}
         </span>
         <span *ngIf="(toast.toastState$ | async) === 'success'" class="material-symbols-outlined">
-            check_circle
+            {{ icons.CHECK_CIRCLE }}
         </span>
     </div>
 
@@ -14,8 +14,6 @@
         <div class="title">{{ toast.toastMessage$ | async }}</div>
     </div>
     <span class="close" (click)="dismiss()">
-        x
+        {{ icons.CLOSE }}
     </span>
-
-
 </div>
