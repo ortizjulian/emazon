@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations'
+import { ToastService } from 'src/app/core/services/toast.service';
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
@@ -14,17 +15,17 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ])
   ]
 })
+
 export class ToastComponent implements OnInit {
 
-  @Input() message = '';
-  @Input() type: 'success' | 'error' = 'success';
-  showsToast = true;
+  toastMessage: string = "";
+  showsToast: boolean = false;
 
-  constructor() { }
+  constructor(public toast: ToastService) { }
 
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.showsToast = false;
-    }, 5000);
+  ngOnInit(): void { }
+
+  dismiss(): void {
+    this.toast.dismissToast();
   }
 }

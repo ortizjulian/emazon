@@ -11,7 +11,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        const token: string = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpYW4uYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFkbWluaXN0cmFkb3IiLCJpZCI6MzIsImlhdCI6MTcyODA3MDI5OCwiZXhwIjo4NjQwMTcyODA3MDI5OH0.5kKkZgWpS_6NWR9a6fm99e49Hzy-UPBnQxFbjQN-ZgY";
+        const token: string = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWxpYW4uYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IkFkbWluaXN0cmFkb3IiLCJpZCI6MzIsImlhdCI6MTcyODM0ODUzNywiZXhwIjo4NjQwMTcyODM0ODUzN30.plOK9O3EAf9bq3H1uAlp_b13Upq3FxW9VeepcI7-NGo";
 
         let request = req;
 

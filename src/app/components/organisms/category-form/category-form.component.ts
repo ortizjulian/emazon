@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/core/models/category.model';
 import { CategoryService } from 'src/app/core/services/category.service';
+import { TOAST_STATE, ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'category-form',
@@ -11,7 +12,7 @@ import { CategoryService } from 'src/app/core/services/category.service';
 export class CategoryFormComponent implements OnInit {
   categoryForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService) {
+  constructor(private fb: FormBuilder, private categoryService: CategoryService, private toast: ToastService) {
     this.categoryForm = this.fb.group({
       name: ['', [Validators.required, Validators.maxLength(50)]],
       description: ['', [Validators.required, Validators.maxLength(120)]],
@@ -28,16 +29,29 @@ export class CategoryFormComponent implements OnInit {
 
       this.categoryService.createCategory(categoryData).subscribe({
         next: (response) => {
-          alert("Creado");
+          this.toast.showToast(
+            TOAST_STATE.success,
+            'Categoría creada exitosamente');
+          this.dismiss();
           this.categoryForm.reset();
         },
         error: (err) => {
-          console.error('Error al crear la categoría', err);
+          this.toast.showToast(
+            TOAST_STATE.error,
+            'Error al crear la categoría'
+          );
+          this.dismiss();
         }
       });
     } else {
       console.log('Formulario no válido');
     }
+  }
+
+  private dismiss(): void {
+    setTimeout(() => {
+      this.toast.dismissToast();
+    }, 2000);
   }
 
   getNameErrorMessage(): string {
