@@ -34,7 +34,8 @@
               "includePaths": [
                 "src/assets/colors",
                 "src/assets/breakpoints",
-                "src/assets/typography"
+                "src/assets/typography",
+                "src/assets/style"
               ]
             },
             "scripts": []

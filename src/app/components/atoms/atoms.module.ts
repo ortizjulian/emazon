@@ -4,10 +4,12 @@ import { PrimaryButtonComponent } from './buttons/primary-button/primary-button.
 import { TextInputComponent } from './inputs/text-input/text-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ToastComponent } from './toast/toast.component';
 @NgModule({
   declarations: [
     PrimaryButtonComponent,
-    TextInputComponent
+    TextInputComponent,
+    ToastComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     PrimaryButtonComponent,
-    TextInputComponent
+    TextInputComponent,
+    ToastComponent
   ]
 })
 export class AtomsModule { }

@@ -16,9 +16,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class ToastComponent implements OnInit {
 
-  @Input() body = '';
-  @Input() title = '';
-  toastMessage = 'This is a toast';
+  @Input() message = '';
+  @Input() type: 'success' | 'error' = 'success';
   showsToast = true;
 
   constructor() { }
