@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CategoryFormComponent } from './components/organisms/category-form/category-form.component';
+import { CategoryComponent } from './components/pages/category/category.component';
 const routes: Routes = [
-  { path: '', component: CategoryFormComponent }
+  { path: '', component: CategoryComponent }
 ];
 
 @NgModule({

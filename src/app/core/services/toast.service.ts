@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { TOAST_STATE } from 'src/app/shared/utils/constants/services-constants';
+import { TOAST_STATE, TOAST_TIME } from 'src/app/shared/utils/constants/services-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,14 @@ export class ToastService {
 
   constructor() { }
 
-  showToast(toastState: string, toastMsg: string): void {
+  showToast(toastState: string, toastMsg: string, duration: number = TOAST_TIME): void {
     this.toastState$.next(toastState);
     this.toastMessage$.next(toastMsg);
     this.showsToast$.next(true);
+
+    setTimeout(() => {
+      this.dismissToast();
+    }, duration);
   }
 
   dismissToast(): void {

@@ -1,6 +1,6 @@
 <div>
-    <h2>{{createCategory}}</h2>
-    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <h2>{{title}}</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <text-input [label]="nameLabel" [formControlName]="name_control" [errorMessage]="getNameErrorMessage()">
         </text-input>
 
@@ -8,9 +8,8 @@
             [errorMessage]="getDescriptionErrorMessage()">
         </text-input>
 
-        <primary-button [size]="ButtonSizes.LARGE" [type]="ButtonTypes.MAIN" [disabled]="categoryForm.invalid">
+        <primary-button [size]="ButtonSizes.LARGE" [type]="ButtonTypes.MAIN" [disabled]="form.invalid">
             {{ createButtonText }}
         </primary-button>
-
     </form>
 </div>
