@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations'
-import { ToastService } from 'src/app/core/services/toast.service';
-import { ICONS } from 'src/app/shared/utils/enums/icons-enums';
+import { ToastService } from '../../../core/services/toast.service';
+import { ICONS } from '../../../shared/utils/enums/icons-enums';
 
 @Component({
   selector: 'app-toast',

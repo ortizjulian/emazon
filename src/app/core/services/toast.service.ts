@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { TOAST_STATE, TOAST_TIME } from 'src/app/shared/utils/constants/services-constants';
+import { TOAST_STATE, TOAST_TIME } from '../../shared/utils/constants/services-constants';
 
 @Injectable({
   providedIn: 'root'

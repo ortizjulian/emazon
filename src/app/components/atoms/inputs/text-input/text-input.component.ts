@@ -1,8 +1,8 @@
 
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { LABEL_TEXT, PLACEHOLDER_TEXT } from 'src/app/shared/utils/constants/atoms-constants';
-import { InputSizes } from 'src/app/shared/utils/enums/atoms-enums';
+import { LABEL_TEXT, PLACEHOLDER_TEXT } from '../../../../shared/utils/constants/atoms-constants';
+import { InputSizes } from '../../../../shared/utils/enums/atoms-enums';
 
 @Component({
   selector: 'text-input',

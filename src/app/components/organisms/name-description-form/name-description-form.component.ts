@@ -1,10 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastService } from 'src/app/core/services/toast.service';
-import { CREATE, DESCRIPTION, DESCRIPTION_CONTROL, DESCRIPTION_MAXLENGTH_ERROR, DESCRIPTION_REQUIRED_ERROR, NAME, NAME_CONTROL, NAME_MAXLENGTH_ERROR, NAME_REQUIRED_ERROR } from 'src/app/shared/utils/constants/organism-constants';
-import { TOAST_STATE } from 'src/app/shared/utils/constants/services-constants';
-import { ButtonSizes, ButtonTypes } from 'src/app/shared/utils/enums/atoms-enums';
+import { ToastService } from '../../../core/services/toast.service';
+import { CREATE, DESCRIPTION, DESCRIPTION_CONTROL, DESCRIPTION_MAXLENGTH_ERROR, DESCRIPTION_REQUIRED_ERROR, NAME, NAME_CONTROL, NAME_MAXLENGTH_ERROR, NAME_REQUIRED_ERROR } from '../../../shared/utils/constants/organism-constants';
+import { TOAST_STATE } from '../../../shared/utils/constants/services-constants';
+import { ButtonSizes, ButtonTypes } from '../../../shared/utils/enums/atoms-enums';
 @Component({
   selector: 'name-description-form',
   templateUrl: './name-description-form.component.html',

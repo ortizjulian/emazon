@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ButtonSizes, ButtonTypes } from 'src/app/shared/utils/enums/atoms-enums';
+import { ButtonSizes, ButtonTypes } from '../../../../shared/utils/enums/atoms-enums';
 
 @Component({
   selector: 'primary-button',

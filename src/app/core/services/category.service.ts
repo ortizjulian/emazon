@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../models/category.model';
 import { Observable } from 'rxjs';
-import { STOCK_CREATE_CATEGORY } from 'src/app/shared/utils/constants/services-constants';
+import { STOCK_CREATE_CATEGORY } from '../../shared/utils/constants/services-constants';
 @Injectable({
   providedIn: 'root'
 })
