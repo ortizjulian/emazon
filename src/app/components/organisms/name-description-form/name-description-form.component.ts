@@ -13,8 +13,6 @@ import { ButtonSizes, ButtonTypes } from '../../../shared/utils/enums/atoms-enum
 export class NameDescriptionFormComponent implements OnInit {
 
   @Input() service: any;
-  @Input() successMessage: string = '';
-  @Input() errorMessage: string = '';
   @Input() title: string = ''
   form: FormGroup;
 
@@ -44,13 +42,10 @@ export class NameDescriptionFormComponent implements OnInit {
       const entityData = this.form.value;
 
       this.service.create(entityData).subscribe({
-        next: () => {
-          this.toast.showToast(TOAST_STATE.success, this.successMessage);
-          this.form.reset();
-        },
-        error: (err: HttpErrorResponse) => {
-          const errorMessage = err.error?.Message ? `${this.errorMessage}: ${err.error.Message}` : this.errorMessage;
-          this.toast.showToast(TOAST_STATE.error, errorMessage);
+        next: (success: boolean) => {
+          if (success) {
+            this.form.reset();
+          }
         }
       });
     }
