@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NameDescFormTableComponent } from './name-desc-form-table.component';
+import { OrganismsModule } from '../../organisms/organisms.module';
 
 describe('NameDescFormTableComponent', () => {
   let component: NameDescFormTableComponent;
@@ -8,9 +9,10 @@ describe('NameDescFormTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NameDescFormTableComponent ]
+      declarations: [NameDescFormTableComponent],
+      imports: [OrganismsModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(NameDescFormTableComponent);
     component = fixture.componentInstance;

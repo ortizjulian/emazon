@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToastComponent } from './toast.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ToastComponent', () => {
   let component: ToastComponent;
@@ -8,9 +9,10 @@ describe('ToastComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ToastComponent ]
+      declarations: [ToastComponent],
+      imports: [BrowserAnimationsModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ToastComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NameDescriptionFormComponent } from './name-description-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrimaryButtonComponent } from '../../atoms/buttons/primary-button/primary-button.component';
+import { TextInputComponent } from '../../atoms/inputs/text-input/text-input.component';
+import { OrganismsModule } from '../organisms.module';
 
 describe('NameDescriptionFormComponent', () => {
   let component: NameDescriptionFormComponent;
@@ -8,7 +12,8 @@ describe('NameDescriptionFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NameDescriptionFormComponent]
+      declarations: [NameDescriptionFormComponent,],
+      imports: [OrganismsModule]
     })
       .compileComponents();
 
