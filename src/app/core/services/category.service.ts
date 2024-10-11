@@ -19,8 +19,6 @@ export class CategoryService {
     this.url = environment.stockApiRoute
   }
 
-
-
   create(categoryData: Category): Observable<boolean> {
     return this.http.post(this.url + STOCK_CREATE_CATEGORY, categoryData).pipe(
       map(() => {

@@ -51,7 +51,6 @@ export class NameDescriptionFormComponent implements OnInit {
     }
   }
 
-
   getNameErrorMessage(): string {
     const control = this.form.get(NAME_CONTROL);
 
