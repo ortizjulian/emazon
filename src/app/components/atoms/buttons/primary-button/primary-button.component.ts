@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ButtonSizes, ButtonTypes } from '../../../../shared/utils/enums/atoms-enums';
 
 @Component({
   selector: 'primary-button',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class PrimaryButtonComponent {
   @Input() disabled: boolean = false;
-  @Input() size: 'large' | 'medium' | 'small' = 'medium';
-  @Input() type: 'main' | 'secondary' = 'main';
+  @Input() size: ButtonSizes = ButtonSizes.MEDIUM;
+  @Input() type: ButtonTypes = ButtonTypes.MAIN;
 }

@@ -1,0 +1,26 @@
+@import 'constants.scss';
+@import 'breakpoints.scss';
+
+div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+input {
+    padding: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+@media (min-width:#{map-get($grid-breakpoints, tablet)}) {
+    input {
+        width: 380px;
+    }
+}

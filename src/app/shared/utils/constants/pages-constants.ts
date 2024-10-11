@@ -1,0 +1,1 @@
+export const CREATE_CATEGORY = 'Crear categoría';

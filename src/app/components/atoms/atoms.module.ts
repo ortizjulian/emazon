@@ -1,16 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PrimaryButtonComponent } from './primary-button/primary-button.component';
-
+import { PrimaryButtonComponent } from './buttons/primary-button/primary-button.component';
+import { TextInputComponent } from './inputs/text-input/text-input.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ToastComponent } from './toast/toast.component';
 @NgModule({
   declarations: [
-    PrimaryButtonComponent
+    PrimaryButtonComponent,
+    TextInputComponent,
+    ToastComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
-    PrimaryButtonComponent
+    PrimaryButtonComponent,
+    TextInputComponent,
+    ToastComponent
   ]
 })
 export class AtomsModule { }

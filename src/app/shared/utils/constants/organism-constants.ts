@@ -1,0 +1,9 @@
+export const NAME = 'Nombre';
+export const DESCRIPTION = 'Descripción';
+export const CREATE = 'Crear';
+export const NAME_CONTROL = 'name';
+export const DESCRIPTION_CONTROL = 'description';
+export const NAME_REQUIRED_ERROR = 'El nombre es obligatorio.';
+export const NAME_MAXLENGTH_ERROR = 'La descripción no puede exceder los 50 caracteres.';
+export const DESCRIPTION_REQUIRED_ERROR = 'La descripción es obligatoria.';
+export const DESCRIPTION_MAXLENGTH_ERROR = 'La descripción no puede exceder los 120 caracteres.';

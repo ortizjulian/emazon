@@ -1,0 +1,55 @@
+@import "colors.scss";
+
+.toast-class {
+    background-color: white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-flex;
+    box-shadow: 6px 6px 12px #00000040;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.success {
+    border-left: 6px solid rgba($approval, 0.5);
+    color: $approval;
+}
+
+.success .material-symbols-outlined {
+    color: $approval;
+}
+
+.icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.success .icon {
+    background-color: rgba($approval, 0.15);
+}
+
+.error {
+    border-left: 6px solid rgba($error, 0.5);
+    color: $error;
+}
+
+.error .material-symbols-outlined {
+    color: $error;
+}
+
+.error .icon {
+    background-color: rgba($error, 0.15);
+}
+
+.close {
+    margin-left: 40px;
+    margin-right: 10px;
+    color: black;
+    cursor: pointer;
+}

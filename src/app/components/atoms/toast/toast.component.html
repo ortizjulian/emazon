@@ -1,0 +1,19 @@
+<div [class]="toast.toastState$ | async" [@toastTrigger]="(toast.showsToast$ | async) ? 'open' : 'close'"
+    class="toast-class">
+
+    <div class="icon center">
+        <span *ngIf="(toast.toastState$ | async) === 'error'" class="material-symbols-outlined">
+            {{ icons.CANCEL }}
+        </span>
+        <span *ngIf="(toast.toastState$ | async) === 'success'" class="material-symbols-outlined">
+            {{ icons.CHECK_CIRCLE }}
+        </span>
+    </div>
+
+    <div style="max-width: 160px;">
+        <div class="title">{{ toast.toastMessage$ | async }}</div>
+    </div>
+    <span class="close" (click)="dismiss()">
+        {{ icons.CLOSE }}
+    </span>
+</div>

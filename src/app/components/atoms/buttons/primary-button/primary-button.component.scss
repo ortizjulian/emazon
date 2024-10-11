@@ -1,10 +1,13 @@
 @import 'colors.scss';
+@import 'constants.scss';
+@import 'breakpoints.scss';
 
 button {
-    border-radius: 4px;
+    border-radius: $corner-radius-small;
     cursor: pointer;
     border: none;
-    margin: 5px;
+    margin: 5px 0;
+    width: 100%;
 }
 
 .main {
@@ -30,6 +33,22 @@ button {
     background-color: $white;
     border: solid 1px $purple;
     color: $purple;
+
+    &:hover {
+        color: lighten($purple, 10%);
+        border: solid 1px lighten($purple, 10%);
+    }
+
+    &:active {
+        color: darken($purple, 10%);
+        border: solid 1px darken($purple, 10%);
+    }
+
+    &:disabled {
+        color: $disabled;
+        border: solid 1px $disabled;
+        cursor: not-allowed;
+    }
 }
 
 .large {
@@ -45,4 +64,10 @@ button {
 .small {
     padding: 4px 16px;
     font-size: 14px;
+}
+
+@media (min-width:#{map-get($grid-breakpoints, tablet)}) {
+    button {
+        width: 380px;
+    }
 }
