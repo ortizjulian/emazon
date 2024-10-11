@@ -1,4 +1,5 @@
 @import 'constants.scss';
+@import 'breakpoints.scss';
 
 div {
     display: flex;
@@ -16,4 +17,10 @@ input {
     color: red;
     font-size: 12px;
     margin-top: 2px;
+}
+
+@media (min-width:#{map-get($grid-breakpoints, tablet)}) {
+    input {
+        width: 380px;
+    }
 }
