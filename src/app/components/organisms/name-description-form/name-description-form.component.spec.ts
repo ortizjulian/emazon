@@ -4,32 +4,26 @@ import { of } from 'rxjs';
 import { NameDescriptionFormComponent } from './name-description-form.component';
 import { OrganismsModule } from '../organisms.module';
 import { DESCRIPTION_MAXLENGTH_ERROR, DESCRIPTION_REQUIRED_ERROR, NAME_MAXLENGTH_ERROR, NAME_REQUIRED_ERROR } from '../../../shared/utils/constants/organism-constants';
-import { CategoryService } from '../.../../../../core/services/category.service';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { EventEmitter } from '@angular/core';
 
 describe('NameDescriptionFormComponent', () => {
   let component: NameDescriptionFormComponent;
   let fixture: ComponentFixture<NameDescriptionFormComponent>;
-  let categoryService: CategoryService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [NameDescriptionFormComponent],
       imports: [
         OrganismsModule,
-        HttpClientTestingModule
       ],
       providers: [
         FormBuilder,
-        CategoryService
       ]
     })
       .compileComponents();
 
     fixture = TestBed.createComponent(NameDescriptionFormComponent);
     component = fixture.componentInstance;
-    categoryService = TestBed.inject(CategoryService);
-    component.service = categoryService;
     fixture.detectChanges();
   });
 
@@ -69,8 +63,8 @@ describe('NameDescriptionFormComponent', () => {
   });
 
   it('should show error message for invalid description (required)', () => {
-    const nameControl = component.form.get('description');
-    nameControl?.markAsTouched();
+    const descriptionControl = component.form.get('description');
+    descriptionControl?.markAsTouched();
 
     expect(component.getDescriptionErrorMessage()).toBe(DESCRIPTION_REQUIRED_ERROR);
   });
@@ -92,14 +86,14 @@ describe('NameDescriptionFormComponent', () => {
   });
 
   it('should not submit form if invalid', () => {
-    const createSpy = jest.spyOn(categoryService, 'create').mockReturnValue(of(true));
+    const submitSpy = jest.spyOn(component.submitForm, 'emit');
 
     component.onSubmit();
-    expect(createSpy).not.toHaveBeenCalled();
+    expect(submitSpy).not.toHaveBeenCalled();
   });
 
-  it('should submit form and reset it when valid', () => {
-    const createSpy = jest.spyOn(categoryService, 'create').mockReturnValue(of(true));
+  it('should emit form data when valid', () => {
+    const submitSpy = jest.spyOn(component.submitForm, 'emit');
 
     component.form.setValue({
       name: 'Valid Name',
@@ -107,10 +101,9 @@ describe('NameDescriptionFormComponent', () => {
     });
 
     component.onSubmit();
-    expect(createSpy).toHaveBeenCalledWith({
+    expect(submitSpy).toHaveBeenCalledWith({
       name: 'Valid Name',
       description: 'Valid Description'
     });
   });
-
 });

@@ -1,10 +1,9 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../../../core/services/toast.service';
 import { CREATE, DESCRIPTION, DESCRIPTION_CONTROL, DESCRIPTION_MAXLENGTH_ERROR, DESCRIPTION_REQUIRED_ERROR, NAME, NAME_CONTROL, NAME_MAXLENGTH_ERROR, NAME_REQUIRED_ERROR } from '../../../shared/utils/constants/organism-constants';
-import { TOAST_STATE } from '../../../shared/utils/constants/services-constants';
 import { ButtonSizes, ButtonTypes } from '../../../shared/utils/enums/atoms-enums';
+
 @Component({
   selector: 'name-description-form',
   templateUrl: './name-description-form.component.html',
@@ -12,8 +11,8 @@ import { ButtonSizes, ButtonTypes } from '../../../shared/utils/enums/atoms-enum
 })
 export class NameDescriptionFormComponent implements OnInit {
 
-  @Input() service: any;
   @Input() title: string = ''
+  @Output() submitForm = new EventEmitter<any>();
   form: FormGroup;
 
   ButtonSizes = ButtonSizes;
@@ -40,14 +39,8 @@ export class NameDescriptionFormComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       const entityData = this.form.value;
-
-      this.service.create(entityData).subscribe({
-        next: (success: boolean) => {
-          if (success) {
-            this.form.reset();
-          }
-        }
-      });
+      this.submitForm.emit(entityData);
+      this.form.reset();
     }
   }
 

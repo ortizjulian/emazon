@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'name-desc-form-table',
@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NameDescFormTableComponent implements OnInit {
 
-  @Input() service: any;
+  @Output() submitForm = new EventEmitter<any>();
   @Input() successMessage: string = '';
   @Input() errorMessage: string = '';
   @Input() title: string = ''
@@ -17,4 +17,7 @@ export class NameDescFormTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  handleSubmit(entityData: any) {
+    this.submitForm.emit(entityData);
+  }
 }
