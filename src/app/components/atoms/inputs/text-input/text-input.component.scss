@@ -1,10 +1,13 @@
 @import 'constants.scss';
 @import 'breakpoints.scss';
 
+.inputWrap {
+    height: 80px;
+}
+
 div {
     display: flex;
     flex-direction: column;
-    gap: 4px;
 }
 
 input {
@@ -16,7 +19,7 @@ input {
 .error {
     color: red;
     font-size: 12px;
-    margin-top: 2px;
+    margin-top: 0px;
 }
 
 @media (min-width:#{map-get($grid-breakpoints, tablet)}) {

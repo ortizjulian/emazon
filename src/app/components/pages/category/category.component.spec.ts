@@ -3,7 +3,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CategoryComponent } from './category.component';
 import { CategoryService } from '../../../core/services/category.service';
 import { of } from 'rxjs';
-import { Category } from 'src/app/core/models/category.model';
+import { CategoryRequest } from 'src/app/core/models/category.model';
 import { PagesModule } from '../pages.module';
 
 describe('CategoryComponent', () => {
@@ -20,7 +20,7 @@ describe('CategoryComponent', () => {
 
     fixture = TestBed.createComponent(CategoryComponent);
     component = fixture.componentInstance;
-    categoryService = TestBed.inject(CategoryService); // Inyectar el servicio
+    categoryService = TestBed.inject(CategoryService);
     fixture.detectChanges();
   });
 
@@ -29,7 +29,7 @@ describe('CategoryComponent', () => {
   });
 
   it('should handle submit and call create method of CategoryService', () => {
-    const categoryData: Category = {
+    const categoryData: CategoryRequest = {
       name: "Iphone",
       description: "Todos los Iphone"
     };
@@ -42,7 +42,7 @@ describe('CategoryComponent', () => {
   });
 
   it('should do nothing if create returns false', () => {
-    const categoryData: Category = {
+    const categoryData: CategoryRequest = {
       name: "Iphone",
       description: "Todos los Iphone"
     };

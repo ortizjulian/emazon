@@ -5,7 +5,12 @@ export const TOAST_STATE = {
 
 export const TOAST_TIME = 2000;
 
-//Category
-export const STOCK_CREATE_CATEGORY = "/category";
-export const CATEGORY_CREATED_SUCCESSFULLY = 'Categoría creada exitosamente';
-export const CATEGORY_CREATE_ERROR = 'Error al crear la categoría';
+export const STOCK_PATH_CATEGORY = "/category";
+export const CATEGORY_CREATED_SUCCESSFULLY = 'Category created successfully';
+export const CATEGORY_CREATE_ERROR = 'Error creating the category';
+export const CATEGORY_LIST_ERROR = 'Error Listing the categories';
+
+export const PAGINATION_PAGE = 'page';
+export const PAGINATION_SIZE = 'size';
+export const SORT_DIRECTION = 'sortDirection';
+export const SORT_BY = 'sortBy';

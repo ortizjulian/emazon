@@ -1,37 +1,27 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NameDescFormTableComponent } from './name-desc-form-table.component';
-import { OrganismsModule } from '../../organisms/organisms.module';
-import { MoleculesModule } from '../../molecules/molecules.module';
+import { AdvancedTableComponent } from './advanced-table.component';
+import { AtomsModule } from '../../atoms/atoms.module';
 import { SortEvent } from 'src/app/shared/interfaces/SortEvent';
 
-describe('NameDescFormTableComponent', () => {
-  let component: NameDescFormTableComponent;
-  let fixture: ComponentFixture<NameDescFormTableComponent>;
+describe('AdvancedTableComponent', () => {
+  let component: AdvancedTableComponent;
+  let fixture: ComponentFixture<AdvancedTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NameDescFormTableComponent],
-      imports: [OrganismsModule, MoleculesModule]
+      declarations: [AdvancedTableComponent],
+      imports: [AtomsModule]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(NameDescFormTableComponent);
+    fixture = TestBed.createComponent(AdvancedTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should emit submitForm event on handleSubmit', () => {
-    jest.spyOn(component.submitForm, 'emit');
-    const entityData = { name: 'Test Category' };
-
-    component.handleSubmit(entityData);
-
-    expect(component.submitForm.emit).toHaveBeenCalledWith(entityData);
   });
 
   it('should emit pageChange event on onPageChange', () => {

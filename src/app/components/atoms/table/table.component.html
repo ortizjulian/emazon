@@ -1,0 +1,14 @@
+<div class="tableWrap">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let column of columns">{{ column.header }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data; let i = index">
+                <td *ngFor="let column of columns">{{ item[column.field] }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

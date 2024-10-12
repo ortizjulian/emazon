@@ -1,4 +1,4 @@
-<div>
+<div class="inputWrap">
     <label *ngIf="label" for="inputText">{{ label }}</label>
     <input type="text" id="inputText" [ngClass]="[size]" [placeholder]="placeholderText" [(ngModel)]="input"
         (focus)="onTouch()" (ngModelChange)="onChange($event)" />

@@ -1,2 +1,4 @@
-<name-desc-form-table (submitForm)="handleSubmit($event)" [title]="title">
+<name-desc-form-table (submitForm)="handleSubmit($event)" [title]="title" [currentSize]="currentSize"
+    [currentPage]="currentPage" (sortChange)="onSortChange($event)" (showChange)="onShowChange($event)"
+    (pageChange)="onPageChange($event)" [totalPages]="totalPages" [columns]="columns" [data]="categories">
 </name-desc-form-table>

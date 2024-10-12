@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NameDescFormTableComponent } from './name-desc-form-table/name-desc-form-table.component';
 import { OrganismsModule } from '../organisms/organisms.module';
+import { MoleculesModule } from '../molecules/molecules.module';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { OrganismsModule } from '../organisms/organisms.module';
   ],
   imports: [
     CommonModule,
-    OrganismsModule
+    OrganismsModule,
+    MoleculesModule
   ],
   exports: [
     NameDescFormTableComponent

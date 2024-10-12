@@ -1,0 +1,18 @@
+@import'colors.scss';
+
+select {
+    border: none;
+    padding: 6px;
+    width: 80px;
+    box-sizing: border-box;
+    color: $purple;
+
+    option {
+        color: black;
+    }
+
+    option:hover {
+        color: $white;
+        background-color: $purple;
+    }
+}

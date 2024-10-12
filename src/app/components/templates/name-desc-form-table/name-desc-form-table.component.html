@@ -1,2 +1,7 @@
-<name-description-form (submitForm)="handleSubmit($event)" [title]="title">
-</name-description-form>
+<div>
+    <name-description-form (submitForm)="handleSubmit($event)" [title]="title">
+    </name-description-form>
+    <app-advanced-table [currentSize]="currentSize" [currentPage]="currentPage" (sortChange)="onSortChange($event)"
+        (showChange)="onShowChange($event)" (pageChange)="onPageChange($event)" [totalPages]="totalPages"
+        [columns]="columns" [data]="data"></app-advanced-table>
+</div>

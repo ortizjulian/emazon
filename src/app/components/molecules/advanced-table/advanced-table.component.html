@@ -1,0 +1,11 @@
+<div class="table-container">
+    <div class="table-top-tool-bar">
+        <app-sort-by (sortChange)="onSortChange($event)"></app-sort-by>
+        <app-show-by [currentSize]="currentSize" (showChange)="onShowChange($event)"></app-show-by>
+    </div>
+    <app-table [columns]="columns" [data]="data"></app-table>
+    <div class="table-bottom-tool-bar">
+        <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChange)="onPageChange($event)">
+        </app-pagination>
+    </div>
+</div>
