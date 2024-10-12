@@ -1,6 +1,6 @@
 export interface PaginationParams {
-    page?: number;
-    size?: number;
-    sortDirection?: string;
-    sortBy?: string;
+    page: number;
+    size: number;
+    sortDirection: string;
+    sortBy: string;
 }
