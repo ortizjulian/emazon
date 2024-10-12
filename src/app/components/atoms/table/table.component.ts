@@ -13,5 +13,5 @@ export class TableComponent implements OnInit {
   }
 
   @Input() data: any[] = [];
-  @Input() columns: string[] = [];
+  @Input() columns: Array<{ header: string; field: string }> = [];
 }

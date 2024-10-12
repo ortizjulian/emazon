@@ -2,9 +2,9 @@ import { TestBed } from '@angular/core/testing';
 
 import { CategoryService } from './category.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { Category } from '../models/category.model';
+import { CategoryRequest } from '../models/category.model';
 import { ToastService } from './toast.service';
-import { CATEGORY_CREATE_ERROR, CATEGORY_CREATED_SUCCESSFULLY, STOCK_CREATE_CATEGORY, TOAST_STATE } from '../../shared/utils/constants/services-constants';
+import { CATEGORY_CREATE_ERROR, CATEGORY_CREATED_SUCCESSFULLY, STOCK_PATH_CATEGORY, TOAST_STATE } from '../../shared/utils/constants/services-constants';
 import { environment } from '../../../environments/environment';
 
 describe('CategoryService', () => {
@@ -32,7 +32,7 @@ describe('CategoryService', () => {
   });
 
   it('create() should create a category and show success toast', () => {
-    const categoryData: Category = {
+    const categoryData: CategoryRequest = {
       name: "Iphone",
       description: "Todos los Iphone"
     };
@@ -42,13 +42,13 @@ describe('CategoryService', () => {
       expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.success, CATEGORY_CREATED_SUCCESSFULLY);
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_CREATE_CATEGORY}`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}`);
     expect(req.request.method).toBe('POST');
     req.flush({});
   });
 
   it('create() should show error toast on creation failure', () => {
-    const categoryData: Category = {
+    const categoryData: CategoryRequest = {
       name: "Iphone",
       description: "Todos los Iphone"
     };
@@ -64,13 +64,13 @@ describe('CategoryService', () => {
       },
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_CREATE_CATEGORY}`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}`);
     expect(req.request.method).toBe('POST');
     req.flush(errorResponse, { status: 409, statusText: 'Conflict' });
   });
 
   it('create() should show error toast on creation failure without specific message', () => {
-    const categoryData: Category = {
+    const categoryData: CategoryRequest = {
       name: "Iphone",
       description: "Todos los Iphone"
     };
@@ -86,7 +86,7 @@ describe('CategoryService', () => {
       },
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_CREATE_CATEGORY}`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}`);
     expect(req.request.method).toBe('POST');
     req.flush(errorResponse, { status: 500, statusText: 'Server Error' });
   });

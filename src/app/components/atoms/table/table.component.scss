@@ -1,0 +1,22 @@
+@import "colors.scss";
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    border-top: 1px solid darken($bg_light_gray, 10%);
+    border-bottom: 1px solid darken($bg_light_gray, 10%);
+    font-weight: 500;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+}
+
+.odd-row {
+    background-color: $bg_light_gray;
+}

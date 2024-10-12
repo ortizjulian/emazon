@@ -30,7 +30,8 @@ import { TableComponent } from './table/table.component';
     ToastComponent,
     SortByComponent,
     ShowByComponent,
-    PaginationComponent
+    PaginationComponent,
+    TableComponent
   ]
 })
 export class AtomsModule { }
