@@ -1,2 +1,6 @@
 <name-desc-form-table (submitForm)="handleSubmit($event)" [title]="title">
 </name-desc-form-table>
+<app-sort-by></app-sort-by>
+<app-show-by></app-show-by>
+<app-pagination [totalPages]="totalPages" (pageChange)="onPageChange($event)">
+</app-pagination>

@@ -1,1 +1,1 @@
-export const CREATE_CATEGORY = 'Crear categoría';
+export const CREATE_CATEGORY = 'Create category';

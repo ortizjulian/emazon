@@ -5,11 +5,19 @@ import { TextInputComponent } from './inputs/text-input/text-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ToastComponent } from './toast/toast.component';
+import { SortByComponent } from './sort-by/sort-by.component';
+import { ShowByComponent } from './show-by/show-by.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     PrimaryButtonComponent,
     TextInputComponent,
-    ToastComponent
+    ToastComponent,
+    SortByComponent,
+    ShowByComponent,
+    PaginationComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +27,10 @@ import { ToastComponent } from './toast/toast.component';
   exports: [
     PrimaryButtonComponent,
     TextInputComponent,
-    ToastComponent
+    ToastComponent,
+    SortByComponent,
+    ShowByComponent,
+    PaginationComponent
   ]
 })
 export class AtomsModule { }
