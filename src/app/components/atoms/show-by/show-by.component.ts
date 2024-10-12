@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Option } from '../../../shared/interfaces/Option';
-import { SHOW_BY } from '../../../shared/utils/constants/atoms-constants';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { SHOW_BY, SHOW_OPTIONS } from '../../../shared/utils/constants/atoms-constants';
+import { INITIAL_ITEMS_TABLE } from '../../../shared/utils/constants/pages-constants';
 
 @Component({
   selector: 'app-show-by',
@@ -9,16 +9,12 @@ import { SHOW_BY } from '../../../shared/utils/constants/atoms-constants';
 })
 export class ShowByComponent implements OnInit {
 
-  showOptions: Option[] = [
-    { label: '5', value: 5 },
-    { label: '10', value: 10 },
-    { label: '15', value: 15 },
-    { label: '20', value: 20 },
-  ];
+  @Input() currentSize: number = INITIAL_ITEMS_TABLE;
 
+  showOptions = SHOW_OPTIONS;
   show_by = SHOW_BY;
 
-  @Output() showChange = new EventEmitter<{ value: number }>();
+  @Output() showChange = new EventEmitter<number>();
 
   constructor() { }
 
@@ -29,6 +25,6 @@ export class ShowByComponent implements OnInit {
     const selectElement = event.target as HTMLSelectElement;
     const selectedValue = parseInt(selectElement.value, 10);
 
-    this.showChange.emit({ value: selectedValue });
+    this.showChange.emit(selectedValue);
   }
 }

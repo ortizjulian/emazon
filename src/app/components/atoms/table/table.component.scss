@@ -1,4 +1,5 @@
 @import "colors.scss";
+@import 'breakpoints.scss';
 
 table {
     width: 100%;
@@ -9,6 +10,7 @@ th {
     border-top: 1px solid darken($bg_light_gray, 10%);
     border-bottom: 1px solid darken($bg_light_gray, 10%);
     font-weight: 500;
+    background-color: white;
 }
 
 th,
@@ -17,6 +19,24 @@ td {
     text-align: left;
 }
 
-.odd-row {
+tbody tr:nth-child(odd) {
     background-color: $bg_light_gray;
+}
+
+.tableWrap {
+    height: 720px;
+    overflow: auto;
+}
+
+
+@media (max-width:#{map-get($grid-breakpoints, tablet)}) {
+    .tableWrap {
+        height: 520px;
+    }
+}
+
+@media (max-width:#{map-get($grid-breakpoints, mobile)}) {
+    .tableWrap {
+        height: 320px;
+    }
 }

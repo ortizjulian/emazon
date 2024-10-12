@@ -1,13 +1,9 @@
 @import'colors.scss';
 
-label {
-    margin-right: 10px;
-}
-
 select {
     border: none;
     padding: 6px;
-    width: 100px;
+    width: 80px;
     box-sizing: border-box;
     color: $purple;
 

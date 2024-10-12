@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import { TOTAL_PAGES_TO_SHOW } from '../../../shared/utils/constants/atoms-constants';
 
 @Component({
@@ -6,7 +6,7 @@ import { TOTAL_PAGES_TO_SHOW } from '../../../shared/utils/constants/atoms-const
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnChanges {
   @Input() totalPages: number = 0;
   @Input() currentPage: number = 1;
   @Output() pageChange = new EventEmitter<number>();
@@ -14,8 +14,10 @@ export class PaginationComponent implements OnInit {
 
   pagesToShow: number[] = [];
 
-  ngOnInit(): void {
-    this.setPagesToShow();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['totalPages'] && !changes['totalPages'].firstChange) {
+      this.setPagesToShow();
+    }
   }
 
   setPagesToShow(): void {
@@ -29,7 +31,7 @@ export class PaginationComponent implements OnInit {
       start = Math.max(1, end - totalPagesToShow + 1);
     }
 
-    this.pagesToShow = Array.from({ length: TOTAL_PAGES_TO_SHOW }, (_, i) => start + i);
+    this.pagesToShow = Array.from({ length: end - start + 1 }, (_, i) => start + i);
   }
 
 

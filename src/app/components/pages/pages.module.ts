@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TemplatesModule } from '../templates/templates.module';
 import { CategoryComponent } from './category/category.component';
-import { AtomsModule } from '../atoms/atoms.module';
+
+import { MoleculesModule } from '../molecules/molecules.module';
 @NgModule({
   declarations: [CategoryComponent],
   imports: [
     CommonModule,
     TemplatesModule,
-    AtomsModule
+    MoleculesModule
   ]
 })
 export class PagesModule { }
