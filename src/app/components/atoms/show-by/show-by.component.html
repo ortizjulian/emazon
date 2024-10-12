@@ -1,0 +1,8 @@
+<div class="show-container">
+    <label for="showSelect">{{show_by}}</label>
+    <select id="showSelect" (change)="onShowChange($event)">
+        <option *ngFor="let option of showOptions" [value]="option.value">
+            {{ option.label }}
+        </option>
+    </select>
+</div>
