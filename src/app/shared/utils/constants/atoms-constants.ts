@@ -20,3 +20,5 @@ export const SHOW_OPTIONS: Option[] = [
     { label: '20', value: 20 },
 ];
 export const TOTAL_PAGES_TO_SHOW = 10;
+
+export const TOTAL_SQUARES_PAGES_TO_SHOW = 5;

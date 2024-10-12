@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
-import { TOTAL_PAGES_TO_SHOW } from '../../../shared/utils/constants/atoms-constants';
+import { TOTAL_SQUARES_PAGES_TO_SHOW } from '../../../shared/utils/constants/atoms-constants';
 
 @Component({
   selector: 'app-pagination',
@@ -21,7 +21,7 @@ export class PaginationComponent implements OnChanges {
   }
 
   setPagesToShow(): void {
-    const totalPagesToShow = TOTAL_PAGES_TO_SHOW;
+    const totalPagesToShow = TOTAL_SQUARES_PAGES_TO_SHOW;
 
     let start = Math.max(1, this.currentPage - Math.floor(totalPagesToShow / 2));
     let end = start + totalPagesToShow - 1;
@@ -33,7 +33,6 @@ export class PaginationComponent implements OnChanges {
 
     this.pagesToShow = Array.from({ length: end - start + 1 }, (_, i) => start + i);
   }
-
 
   onPageChange(page: number): void {
     if (page >= 1 && page <= this.totalPages) {
