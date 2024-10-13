@@ -1,1 +1,17 @@
-<div></div>
+<header>
+    <nav class="navbar">
+        <div class="name">
+            <h1>{{app_name}}</h1>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li *ngFor="let link of navLinks">
+                <a [routerLink]="link.path" (click)="toggleMenu()">{{ link.label }}</a>
+            </li>
+        </ul>
+        <div class="hamburger" id="hamburger" (click)="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+</header>

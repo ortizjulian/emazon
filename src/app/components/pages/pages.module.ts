@@ -4,8 +4,9 @@ import { TemplatesModule } from '../templates/templates.module';
 import { CategoryComponent } from './category/category.component';
 
 import { MoleculesModule } from '../molecules/molecules.module';
+import { BrandComponent } from './brand/brand.component';
 @NgModule({
-  declarations: [CategoryComponent],
+  declarations: [CategoryComponent, BrandComponent],
   imports: [
     CommonModule,
     TemplatesModule,
