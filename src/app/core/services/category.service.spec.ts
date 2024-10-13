@@ -6,7 +6,7 @@ import { CategoryRequest } from '../models/category.model';
 import { ToastService } from './toast.service';
 import { CATEGORY_CREATE_ERROR, CATEGORY_CREATED_SUCCESSFULLY, PAGINATION_PAGE, PAGINATION_SIZE, SORT_BY, SORT_DIRECTION, STOCK_PATH_CATEGORY, TOAST_STATE } from '../../shared/utils/constants/services-constants';
 import { environment } from '../../../environments/environment';
-import { PaginationParams } from 'src/app/shared/interfaces/PaginationParams';
+import { PaginationParams } from '../../shared/interfaces/PaginationParams';
 import { Pagination } from '../models/pagination.model';
 
 describe('CategoryService', () => {
