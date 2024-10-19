@@ -1,27 +1,26 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CategoryService } from './category.service';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { CategoryRequest } from '../models/category.model';
+import { BrandService } from './brand.service';
 import { ToastService } from './toast.service';
-import { CATEGORY_CREATE_ERROR, CATEGORY_CREATED_SUCCESSFULLY, PAGINATION_PAGE, PAGINATION_SIZE, SORT_BY, SORT_DIRECTION, STOCK_PATH_CATEGORY, TOAST_STATE } from '../../shared/utils/constants/services-constants';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { BrandRequest } from '../models/brand.model';
+import { BRAND_CREATE_ERROR, BRAND_CREATED_SUCCESSFULLY, PAGINATION_PAGE, PAGINATION_SIZE, SORT_BY, SORT_DIRECTION, STOCK_PATH_BRAND, TOAST_STATE } from '../../shared/utils/constants/services-constants';
 import { environment } from '../../../environments/environment';
 import { PaginationParams } from '../../shared/interfaces/PaginationParams';
 import { Pagination } from '../models/pagination.model';
-
-describe('CategoryService', () => {
-  let service: CategoryService;
+describe('BrandService', () => {
+  let service: BrandService;
   let toastService: ToastService;
   let httpMock: HttpTestingController;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
 
       imports: [HttpClientTestingModule],
-      providers: [CategoryService]
+      providers: [BrandService]
     })
       .compileComponents();
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CategoryService);
+    service = TestBed.inject(BrandService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 
@@ -29,67 +28,66 @@ describe('CategoryService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('create() should create a category and show success toast', () => {
-    const categoryData: CategoryRequest = {
-      name: "Iphone",
-      description: "Todos los Iphone"
+  it('create() should create a brand and show success toast', () => {
+    const brandData: BrandRequest = {
+      name: "Mattelsa",
+      description: "Ropa"
     };
 
-    service.create(categoryData).subscribe((result) => {
+    service.create(brandData).subscribe((result) => {
       expect(result).toBe(true);
-      expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.success, CATEGORY_CREATED_SUCCESSFULLY);
+      expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.success, BRAND_CREATED_SUCCESSFULLY);
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_BRAND}`);
     expect(req.request.method).toBe('POST');
     req.flush({});
   });
 
   it('create() should show error toast on creation failure', () => {
-    const categoryData: CategoryRequest = {
-      name: "Iphone",
-      description: "Todos los Iphone"
+    const brandData: BrandRequest = {
+      name: "Mattelsa",
+      description: "Ropa"
     };
-    const errorResponse = { Message: 'There is already a category with that name' };
+    const errorResponse = { Message: 'There is already a brand with that name' };
 
-    service.create(categoryData).subscribe({
+    service.create(brandData).subscribe({
       next: () => {
         fail('Expected an error, but got success');
       },
       error: (error) => {
-        expect(error.message).toBe(`${CATEGORY_CREATE_ERROR} There is already a category with that name`);
-        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, `${CATEGORY_CREATE_ERROR} There is already a category with that name`);
+        expect(error.message).toBe(`${BRAND_CREATE_ERROR} There is already a brand with that name`);
+        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, `${BRAND_CREATE_ERROR} There is already a brand with that name`);
       },
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_BRAND}`);
     expect(req.request.method).toBe('POST');
     req.flush(errorResponse, { status: 409, statusText: 'Conflict' });
   });
 
   it('create() should show error toast on creation failure without specific message', () => {
-    const categoryData: CategoryRequest = {
-      name: "Iphone",
-      description: "Todos los Iphone"
+    const brandData: BrandRequest = {
+      name: "Mattelsa",
+      description: "Ropa"
     };
     const errorResponse = {};
 
-    service.create(categoryData).subscribe({
+    service.create(brandData).subscribe({
       next: () => {
         fail('Expected an error, but got success');
       },
       error: (error) => {
-        expect(error.message).toBe(CATEGORY_CREATE_ERROR);
-        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, CATEGORY_CREATE_ERROR);
+        expect(error.message).toBe(BRAND_CREATE_ERROR);
+        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, BRAND_CREATE_ERROR);
       },
     });
-
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_BRAND}`);
     expect(req.request.method).toBe('POST');
     req.flush(errorResponse, { status: 500, statusText: 'Server Error' });
   });
 
-  it('listAll() should retrieve categories and return pagination data', () => {
+  it('listAll() should retrieve brands and return pagination data', () => {
     const params: PaginationParams = {
       page: 1,
       size: 10,
@@ -106,7 +104,7 @@ describe('CategoryService', () => {
       expect(response).toEqual(mockPaginationResponse);
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}?${PAGINATION_PAGE}=1&${PAGINATION_SIZE}=10&${SORT_DIRECTION}=ASC&${SORT_BY}=name`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_BRAND}?${PAGINATION_PAGE}=1&${PAGINATION_SIZE}=10&${SORT_DIRECTION}=ASC&${SORT_BY}=name`);
     expect(req.request.method).toBe('GET');
     expect(req.request.params.has(PAGINATION_PAGE)).toBe(true);
     expect(req.request.params.has(PAGINATION_SIZE)).toBe(true);
@@ -122,19 +120,19 @@ describe('CategoryService', () => {
       sortDirection: 'ASC',
       sortBy: 'name'
     };
-    const errorResponse = { Message: 'Failed to load categories' };
+    const errorResponse = { Message: 'Failed to load brands' };
 
     service.listAll(params).subscribe({
       next: () => {
         fail('Expected an error, but got success');
       },
       error: (error) => {
-        expect(error.message).toBe('Error Listing the categories: Failed to load categories');
-        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, 'Error Listing the categories: Failed to load categories');
+        expect(error.message).toBe('Error Listing the brands: Failed to load brands');
+        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, 'Error Listing the brands: Failed to load brands');
       },
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}?${PAGINATION_PAGE}=1&${PAGINATION_SIZE}=10&${SORT_DIRECTION}=ASC&${SORT_BY}=name`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_BRAND}?${PAGINATION_PAGE}=1&${PAGINATION_SIZE}=10&${SORT_DIRECTION}=ASC&${SORT_BY}=name`);
     expect(req.request.method).toBe('GET');
     req.flush(errorResponse, { status: 500, statusText: 'Server Error' });
   });
@@ -153,13 +151,13 @@ describe('CategoryService', () => {
         fail('Expected an error, but got success');
       },
       error: (error) => {
-        expect(error.message).toBe('Error Listing the categories');
-        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, 'Error Listing the categories');
+        expect(error.message).toBe('Error Listing the brands');
+        expect(toastService.showToast).toHaveBeenCalledWith(TOAST_STATE.error, 'Error Listing the brands');
       },
     });
 
-    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_CATEGORY}?${PAGINATION_PAGE}=1&${PAGINATION_SIZE}=10&${SORT_DIRECTION}=ASC&${SORT_BY}=name`);
+    const req = httpMock.expectOne(`${environment.stockApiRoute}${STOCK_PATH_BRAND}?${PAGINATION_PAGE}=1&${PAGINATION_SIZE}=10&${SORT_DIRECTION}=ASC&${SORT_BY}=name`);
     expect(req.request.method).toBe('GET');
     req.flush(errorResponse, { status: 500, statusText: 'Server Error' });
   });
-});
+})

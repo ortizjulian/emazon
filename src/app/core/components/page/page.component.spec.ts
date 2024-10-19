@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PageComponent } from './page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '../../core.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PageComponent', () => {
   let component: PageComponent;
@@ -11,7 +12,7 @@ describe('PageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PageComponent],
-      imports: [CoreModule, BrowserAnimationsModule]
+      imports: [CoreModule, BrowserAnimationsModule, RouterTestingModule]
     })
       .compileComponents();
 
