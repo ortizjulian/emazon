@@ -9,6 +9,7 @@ import { SortByComponent } from './sort-by/sort-by.component';
 import { ShowByComponent } from './show-by/show-by.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { TableComponent } from './table/table.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 @NgModule({
   declarations: [
     PrimaryButtonComponent,
@@ -17,7 +18,8 @@ import { TableComponent } from './table/table.component';
     SortByComponent,
     ShowByComponent,
     PaginationComponent,
-    TableComponent
+    TableComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { TableComponent } from './table/table.component';
     SortByComponent,
     ShowByComponent,
     PaginationComponent,
-    TableComponent
+    TableComponent,
+    DropdownComponent
   ]
 })
 export class AtomsModule { }

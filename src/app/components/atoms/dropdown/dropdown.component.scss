@@ -1,0 +1,58 @@
+@import 'breakpoints.scss';
+@import'colors.scss';
+
+.dropDownWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+select {
+    flex-grow: 1;
+    padding: 12px;
+    box-sizing: border-box;
+    color: $black;
+
+    option {
+        color: black;
+    }
+
+    option:hover {
+        color: $white;
+        background-color: $purple;
+    }
+}
+
+button {
+    margin-left: 10px;
+    background-color: lighten($purple, 10%);
+    color: $white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.delete {
+    padding: 5px 0px;
+    width: 43px;
+    height: 43px;
+}
+
+@media (min-width:#{map-get($grid-breakpoints, tablet)}) {
+    .dropDownWrap {
+        width: 380px;
+    }
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 0px;
+}

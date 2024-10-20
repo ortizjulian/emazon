@@ -26,7 +26,7 @@ export class BrandService {
   create(brandData: BrandRequest): Observable<boolean> {
     return this.http.post(this.url + STOCK_PATH_BRAND, brandData).pipe(
       map(() => {
-        this.toast.showToast(TOAST_STATE.success, BRAND_CREATED_SUCCESSFULLY);
+        this.toast.showToast(TOAST_STATE.success, this.successMessage);
         return true;
       }),
       catchError((err: HttpErrorResponse) => {

@@ -6,6 +6,7 @@ export const LABEL_TEXT = 'Enter your text:';
 export const ORDER_BY = "Order by:";
 export const SHOW_BY = "Show by:";
 
+export const SELECT_TEXT = 'Select...';
 
 export const NAME = "Name";
 export const ASC = "ASC";

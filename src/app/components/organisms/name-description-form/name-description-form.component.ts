@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastService } from '../../../core/services/toast.service';
 import { CREATE, DESCRIPTION, DESCRIPTION_CONTROL, DESCRIPTION_MAXLENGTH_ERROR, DESCRIPTION_REQUIRED_ERROR, NAME, NAME_CONTROL, NAME_MAXLENGTH_ERROR, NAME_REQUIRED_ERROR } from '../../../shared/utils/constants/organism-constants';
 import { ButtonSizes, ButtonTypes } from '../../../shared/utils/enums/atoms-enums';
 
@@ -9,7 +8,7 @@ import { ButtonSizes, ButtonTypes } from '../../../shared/utils/enums/atoms-enum
   templateUrl: './name-description-form.component.html',
   styleUrls: ['./name-description-form.component.scss']
 })
-export class NameDescriptionFormComponent implements OnInit {
+export class NameDescriptionFormComponent {
 
   @Input() title: string = ''
   @Output() submitForm = new EventEmitter<any>();
@@ -25,15 +24,11 @@ export class NameDescriptionFormComponent implements OnInit {
   description_control = DESCRIPTION_CONTROL;
 
 
-  constructor(private fb: FormBuilder, private toast: ToastService) {
+  constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       [NAME_CONTROL]: ['', [Validators.required, Validators.maxLength(50)]],
       [DESCRIPTION_CONTROL]: ['', [Validators.required, Validators.maxLength(120)]]
     });
-  }
-
-  ngOnInit(): void {
-
   }
 
   onSubmit() {

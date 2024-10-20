@@ -3,6 +3,6 @@ export interface BrandRequest {
     description: string;
 }
 
-export interface BrandReponse extends BrandRequest {
+export interface BrandResponse extends BrandRequest {
     id: number
 }

@@ -1,0 +1,37 @@
+<div>
+    <h2>{{title}}</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <text-input [label]="nameLabel" [formControlName]="nameControl" [errorMessage]="getNameErrorMessage()">
+        </text-input>
+
+        <text-input [label]="descriptionLabel" [formControlName]="descriptionControl"
+            [errorMessage]="getDescriptionErrorMessage()">
+        </text-input>
+
+        <text-input [label]="quantityLabel" [formControlName]="quantityControl"
+            [errorMessage]="getQuantityErrorMessage()">
+        </text-input>
+
+        <text-input [label]="priceLabel" [formControlName]="priceControl" [errorMessage]="getPriceErrorMessage()">
+        </text-input>
+
+        <dropdown [formControlName]="brandControl" [options]="brandOptions" [label]="brandLabel"
+            [errorMessage]="getBrandErrorMessage()">
+        </dropdown>
+
+        <div class="categories-container" [formArrayName]="categoryControl">
+            <label>{{categoriesText}}</label>
+            <button type="button" (click)="addCategory()">+</button>
+            <ng-container *ngFor="let category of getCategoriesArray().controls; let i = index">
+                <div [formGroupName]="i" class="category-item">
+                    <dropdown formControlName="categoryId" [options]="categoryOptions" [showDeleteButton]="true"
+                        (delete)="removeCategory(i)"></dropdown>
+                </div>
+            </ng-container>
+        </div>
+
+        <primary-button [size]="ButtonSizes.LARGE" [type]="ButtonTypes.MAIN" [disabled]="form.invalid">
+            {{ createButtonText }}
+        </primary-button>
+    </form>
+</div>

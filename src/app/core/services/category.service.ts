@@ -26,7 +26,7 @@ export class CategoryService {
   create(categoryData: CategoryRequest): Observable<boolean> {
     return this.http.post(this.url + STOCK_PATH_CATEGORY, categoryData).pipe(
       map(() => {
-        this.toast.showToast(TOAST_STATE.success, CATEGORY_CREATED_SUCCESSFULLY);
+        this.toast.showToast(TOAST_STATE.success, this.successMessage);
         return true;
       }),
       catchError((err: HttpErrorResponse) => {

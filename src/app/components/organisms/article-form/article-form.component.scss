@@ -1,0 +1,30 @@
+@import'colors.scss';
+
+h2 {
+    margin: 0;
+}
+
+button {
+    margin-left: 10px;
+    background-color: lighten($purple, 10%);
+    color: $white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.category-item {
+    display:
+        flex;
+    flex-direction: row;
+}
+
+dropdown {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.categories-container {
+    margin-top: 10px;
+}

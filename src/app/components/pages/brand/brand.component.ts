@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CREATE_BRAND, DESCRIPTION, DESCRIPTION_CONTROL, INITIAL_ITEMS_TABLE, NAME, NAME_CONTROL } from '../../../shared/utils/constants/pages-constants';
 import { ASC } from '../../../shared/utils/constants/atoms-constants';
-import { BrandReponse, BrandRequest } from '../../../core/models/brand.model';
+import { BrandResponse, BrandRequest } from '../../../core/models/brand.model';
 import { SortEvent } from '../../../shared/interfaces/SortEvent';
 import { Pagination } from '../../../core/models/pagination.model';
 import { PaginationParams } from '../../../shared/interfaces/PaginationParams';
@@ -17,7 +17,7 @@ export class BrandComponent implements OnInit {
   title = CREATE_BRAND;
   totalPages: number = 0;
   currentPage: number = 1;
-  brands: BrandReponse[] = [];
+  brands: BrandResponse[] = [];
   currentSize: number = INITIAL_ITEMS_TABLE;
   sortDirection: string = ASC;
   sortBy: string = NAME_CONTROL;
